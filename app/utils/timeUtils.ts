@@ -2,6 +2,10 @@
  * Utility functions for time-related calculations
  */
 
+const HOURS_THRESHOLD_3 = 3;
+const HOURS_THRESHOLD_4 = 4;
+const MS_PER_HOUR = 1000 * 60 * 60;
+
 /**
  * Get hours since a given date
  * @param date - The date to calculate from
@@ -11,7 +15,7 @@ export const getHoursSince = (date: Date | null): number => {
     if (!date) return Infinity;
     const now = new Date();
     const givenDate = new Date(date);
-    return (now.getTime() - givenDate.getTime()) / (1000 * 60 * 60);
+    return (now.getTime() - givenDate.getTime()) / MS_PER_HOUR;
 };
 
 /**
@@ -20,7 +24,7 @@ export const getHoursSince = (date: Date | null): number => {
  * @returns true if more than 3 hours have passed
  */
 export const isMoreThan3HoursPassed = (date: Date | null): boolean => {
-    return getHoursSince(date) > 3;
+    return getHoursSince(date) > HOURS_THRESHOLD_3;
 };
 
 /**
@@ -29,7 +33,7 @@ export const isMoreThan3HoursPassed = (date: Date | null): boolean => {
  * @returns true if more than 4 hours have passed
  */
 export const isMoreThan4HoursPassed = (date: Date | null): boolean => {
-    return getHoursSince(date) > 4;
+    return getHoursSince(date) > HOURS_THRESHOLD_4;
 };
 
 /**
