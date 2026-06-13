@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { AnimalDetails } from "@/app/models/AnimalDetails";
+import { AnimalDetails } from "@/app/models/animalDetails";
 import { getAnimalById, resetFeedingIfExpired } from "@/app/services/animalService";
 import { useFeedingStatus } from "@/app/hooks/useFeedingStatus";
 import { FeedButton } from "@/app/components/FeedButton";
@@ -15,14 +15,12 @@ export default function AnimalDetailPage() {
     const params = useParams();
     const id = parseInt(params.id as string);
 
-    // Guard against invalid ID
     const [animal, setAnimal] = useState<AnimalDetails | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(
         isNaN(id) ? "Invalid animal ID" : null
     );
 
-    // Check and reset feeding status if expired
     useEffect(() => {
         const checkFeedingStatus = async () => {
             // Skip if id is invalid
@@ -34,9 +32,7 @@ export default function AnimalDetailPage() {
             try {
                 const data = await getAnimalById(id);
                 if (data) {
-                    // Reset if feeding expired (> 3 hours)
                     resetFeedingIfExpired(id);
-                    // Fetch again to get updated state
                     const updatedData = await getAnimalById(id);
                     setAnimal(updatedData);
                 }
@@ -165,4 +161,3 @@ export default function AnimalDetailPage() {
         </div>
     );
 }
-
