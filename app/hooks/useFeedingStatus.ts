@@ -10,7 +10,6 @@ export const useFeedingStatus = (animalId: number, onFeedingUpdate?: (isFed: boo
     const [lastFed, setLastFed] = useState<Date | null>(null);
     const [needsFeeding, setNeedsFeeding] = useState(false);
 
-    // Load feeding status from localStorage on mount
     useEffect(() => {
         const animals = localStorage.getItem("animals");
         if (animals) {
