@@ -1,10 +1,10 @@
 # 🦁 The Zoo - Animal Management System
 
-A modern web application for managing and monitoring animals in a zoo. Keep track of feeding schedules, view detailed information about animals, and ensure all creatures in your care receive timely meals.
+This is a web application for managing and monitoring animals in a zoo. The main purpose is to keep track of feeding schedules, view detailed information about animals, and ensure all creatures in your care receive timely meals.
 
 ## 🎯 Project Purpose
 
-The Zoo is a responsive web application designed to streamline zoo operations by providing caretakers with a centralized platform to:
+The Zoo is a responsive web application designed to simplify zoo operations by providing caretakers with a centralized platform to:
 - Monitor all animals and their feeding status
 - Track when each animal was last fed
 - Receive alerts for animals that need feeding
